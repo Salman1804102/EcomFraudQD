@@ -1,0 +1,81 @@
+Introduction to AI [Week 1]
+Definition and history
+Types of AI: Narrow AI, General AI, and Super intelligent AI
+Key applications (e.g., virtual assistants, recommendation systems, autonomous vehicles)
+Link: https://www.linkedin.com/learning/artificial-intelligence-foundations-thinking-machines/
+SamsungU: https://samsungu.csod.com/ui/lms-learning-details/app/course/688d8139-2123-5619-a9f1-2abbaff1c625
+[Recorded Session] Basic AI Training 14-Nov
+
+Machine Learning Basics [Week 1]
+Types of Machine Learning: Supervised, Unsupervised, and Reinforcement Learning
+Key Algorithms: Linear regression, SVM, Decision trees, Random Forest, k-means clustering, and neural networks
+Training vs. Testing: Importance of data splitting (training, validation, and test sets)
+Overfitting and Underfitting: How to avoid both issues with regularization and cross-validation
+[Link] Machine Learning A-Z (Python & R in Data Science Course)
+(Training vs. Testing: Importance of data splitting) Machine Learning A-Z course; Sections: 2
+(Key Algorithms: Linear regression, SVM, Decision trees, Random Forest, k-means clustering) Machine Learning A-Z course; Sections: 6, 7, 18, 21, 22, 26
+[Link] Types of Machine Learning: Supervised, Unsupervised, and Reinforcement Learning
+[Link] Overfitting and Underfitting: How to avoid both issues with Regularization
+[Link] Overfitting and Underfitting: How to avoid both issues with Cross validation
+[PPT] AI Basic Training_part1.pptx
+week_1_materials.zip
+[Recorded Session] Basic AI Training 21-Nov
+
+Data Preprocessing [Week 2]
+Data Cleaning: Handling missing values, duplicate data, etc.
+Feature Engineering: Selecting and transforming relevant features
+Normalization and Standardization: Preparing data for algorithms like SVM or neural networks
+[Link] Machine Learning A-Z (Python & R in Data Science Course) [Sections: 2, 3]
+[Training materials] 2024-11-27-Data-Preprocessing.zip
+[Recorded Session] Basic AI Training 28-Nov
+
+Neural Networks and Deep Learning [Week 3]
+Introduction to Neural Networks: Perceptron, multi-layer perceptrons (MLPs)
+Activation Functions: ReLU, Sigmoid, Softmax
+Deep Learning Frameworks: TensorFlow, PyTorch
+Backpropagation and Gradient Descent: Basics of training neural networks
+[Link] But what is a neural network? | Deep learning chapter 1
+[Link] Activation Functions in a Neural Network explained
+[Link] Gradient descent, how neural networks learn | DL2
+[Link] Backpropagation, step-by-step | DL3
+[Link] Implementing and Training a Neural Network with PyTorch - YouTube
+[Training materials] 2024-12-05-nural-network.zip
+[Recorded Session] Basic AI Training 05-Dec
+
+Natural Language Processing (NLP) Basics [Week 4, Week 5]
+Text Representation Techniques: Bag of Words, TF-IDF, Word2Vec
+Basic Tasks: Text classification, sentiment analysis, language translation
+Popular Models: GPT, BERT, and Transformers
+Natural Language Processing: NLP With Transformers in Python
+[Training materials - week 4] week-4-nlp.zip
+[Recorded Session, Model & Dataset ] Basic AI Training 12-Dec
+[Recorded Session] Basic AI Training 19-Dec
+
+Computer Vision Basics [Week 6, Week 7]
+Image Representation: Pixels, RGB channels, and convolutions [Ref 1][Ref 2]
+Convolutional Neural Networks (CNNs): Overview and applications
+Tasks:
+Object detection and classification (Convolutional Neural Networks (CNN), Region Proposal Network (RPN), Anchor boxes, Non-Maximum Suppression (NMS), Intersection over Union (IoU), etc.)
+Segmentation (Instance Segmentation, Semantic Segmentation, Panoptic Segmentation, etc.)
+-  Deep Learning with PyTorch for Medical Image Analysis (Alternate Link: Deep Learning with Pytorch for medical image analysis | Udemy)
+Data Sampler (Random Sampler, Stratified Sampler, Balanced Sampler, Cluster Sampler, Time Series Sampler, etc.)
+1. https://towardsdatascience.com/pytorch-basics-sampling-samplers-2a0f29f0bf2a
+2. https://medium.com/@haleema.ramzan/how-to-build-a-custom-batch-sampler-in-pytorch-ce04161583ee
+3. https://pytorch.org/vision/main/generated/torchvision.datasets.CocoDetection.html
+[Recorded Session] SRBD Basic AI Training 02-Jan
+[Recorded Session] SRBD Basic AI Training 16-Jan
+Reinforcement Learning Fundamentals [Week 8]
+Concept of Agents and Environments: Learning through rewards and penalties
+Policies, Value Functions, and Q-learning
+Applications: Robotics, game AI, self-driving cars
+Reinforcement Q-Learning from Scratch in Python with OpenAI Gym – LearnDataSci
+An Introduction to Q-Learning: A Tutorial For Beginners
+Reinforcement Learning — Teach a Taxi Cab to drive around with Q-Learning
+Reinforcement Q-Learning from Scratch in Python with OpenAI Gym
+[PPT] AI_RL_Presentation_23_1.pptx
+[Recorded Session] SRBD Basic AI Training 23-Jan
+Ethics in AI [Week 8]
+Bias in AI: Understanding and addressing algorithmic bias
+Privacy Issues: Data usage and user consent
+AI Ethics Guidelines: Fairness, transparency, and accountability
+Ethics & Generative AI (GenAI)
