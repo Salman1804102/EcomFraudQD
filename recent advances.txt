@@ -1,1 +1,23 @@
+Importance of Findings : 30% (less than 2,000 characters in Korea or less than 4,000 characters in English (less than 4000byte))
+- Are the findings in the paper able to suggest a new direction in the related field as the world’s first case?
+1)	This work proposes a zero-shot learning based user feedback analysis on software products review (specifically Samsung Internet Browser’s user review, scrapped from the google playstore) which is the very first case or attempt to classify huge volume of user reviews on different application in google playstore in unsupervised manner. Thus, the work will set a benchmark for future research on software products review analysis rather than traditional e-commerce review and finding critical issues from that. 
+2)	This work will also drive LLM usage for text classification or categorization rather than traditional clustering approach for unsupervised learning, as the LLM usage is found efficient in this work
+3)	From this work it is also seen that the BERTopic along with Manual Labelling can help LLM models a lot to find the correct label from an unlabeled text sample. It will help researchers to explore more of its capability in near future.
+4)	This work made a well tradeoff between specification and generalization of models. When we focused on making a model more domain specific then it becomes not generalize to other works, whereas when we make the model generalize it is not well specific for a particular domain. This work will drive future research to make a well tradeoff between these two.
+5)	 Utilizing external related datasets to choose model and doing prompt engineering on them will further help future research to do that in other types of task. Basically this makes the model better in terms of trade offing between the specification and generalization.
+2.Originality : 30% (less than 2,000 characters in Korea or less than 4,000 characters in English (less than 4000byte))
+- Does the paper suggest a new concept differentiated from existing technologies?
+
+i)	The paper suggest several new concept than existing technologies. It suggests multi-label complaint classification from user feedback. Most of the existing works focus on multiclass aspect analysis from e-commerce user reviews. In this sense it is a work where several aspects or complaints (14 aspects) were found. Also existing works doesn’t focus on that much label or class even in multiclass, whereas we made an effort finding several complaints from the work, as we know that a review can contain multiple complaints at a time
+ii)	This work utilized external datasets, which serves as an auxiliary task that can help us which LLM model can actually works better on e-commerce related datasets. It is a kind of feeling of multi-task learning. In existing works where llm was used for text classification directly utilized the LLM on labeled data and then analyzed their efficiency, but there we first utilized LLM on the labeled known data and then applied llm on unsupervised data. This technique along with trying with different prompt engineering is a new concept, that will help us a lot. 
+iii)	In existing works only manual labeled was utilized but here we used both BERTopic and Manual Labeling to find actually what labels are present. 
+
+
+
+3.Validity of Evidence : 30% (less than 2,000 characters in Korea or less than 4,000 characters in English (less than 4000byte))
+- Is the evidence presented in the paper strong enough to support the conclusion?
+
+1)	Previous studies have shown that traditional ML, DL, and transformer-based models perform comparably to LLMs on standard datasets. This study builds on that evidence by evaluating several state-of-the-art LLMs on a scraped dataset of 5,000 Samsung Browser reviews. 
+2)	Through systematic benchmarking and comparison with manually annotated and BERTopic-generated labels, the framework validates the classification results. The consistency in performance with prior findings supports the reliability of the conclusions, and the robust experimental design affirms the credibility of DeepSeek-14B as the best-performing ZSL model for this task.
+3)	Apart from that the dataset is verified by two domain experts to confirm its validity.
 
