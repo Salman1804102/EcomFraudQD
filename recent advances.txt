@@ -93,4 +93,91 @@ A study [14] analyze the customer’s complaints behavior in a live streaming e-
 
 
 
+An LLM based Topic Modeling for User Feedback Analysis of Samsung Products  
+Salman farsi1, and ahsin abid1 
+(Abstract) User reviews play a critical role in shaping product development and brand perception in e-commerce and application ecosystems. However, manual analysis of these reviews is time-consuming and inefficient, especially for large-scale platforms like the Google Play Store. In this study, we propose a generalized zero-shot learning (ZSL)-based multi-label complaint classification framework to analyze negative user reviews of the Samsung Internet Browser. To determine the labels, we employed both manual annotation and BERTopic to extract topics from the dataset. We scraped 5,000 negative user reviews of the Samsung Internet Browser with user ratings below 3. We evaluated several state-of-the-art open-source large language models (LLMs)—including GPT-3.5, Claude, DeepSeek-14B, and LLaMA2—on existing labeled datasets to identify the most effective model. It is observed that DeepSeek-14B outperformed the others, and eventually it is chosen as best classifier for Sbrowser review dataset.
+1. INTRODUCTION
+Customer reviews have become an essential asset for e-commerce sellers and app developers to assess product performance, brand perception, and user satisfaction. While physical products often rely on manual surveys and feedback, online products benefit from a wealth of spontaneous user-generated reviews on digital platforms. 
+   However, analyzing such vast and diverse reviews is highly challenging. Reviews often contain mixed sentiments, multiple complaints, and various emotional tones, making manual analysis inefficient and prone to bias [1]. Furthermore, existing labeled datasets are relatively small (10k–20k), limiting the generalizability of traditional supervised learning approaches [2]. Also, most studies frame sentiment analysis as a single-label classification task, ignoring the fact that long reviews frequently contain multiple complaint aspects [3]. Google Play Store hosts millions of applications with an even greater number of user reviews. These reviews can offer developers critical insights into issues like crashes, privacy concerns, UI/UX feedback, and feature requests. So, this analysis concludes us to the following research questions:
+
+RQ1: How effectively can zero-shot learning models perform multi-label aspect classification on user reviews without extensive labeled data?
+RQ2: Which large language models are most suitable for zero-shot classification in the context of e-commerce and application-based user feedback?
+RQ3: What are the practical challenges of applying LLM-based complaint classification on real-world user-generated data from platforms like Google Play Store?
+   In this study, we focus on Samsung Internet Browser (SBrowser) reviews. We developed a zero-shot learning (ZSL) pipeline capable of assigning multiple complaint aspects per review. This pipeline was evaluated using several LLMs on three existing labeled datasets to identify the most accurate model. The best-performing model, DeepSeek-14B, was then used to perform in-depth analysis of the Sbrowser reviews. The contribution of our work in response to the research questions identified earlier is outlined below:
+ARQ1: We developed a zero-shot learning-based complaint classification pipeline tailored for multi-label aspect analysis in user reviews without relying on extensive labeled datasets.
+ARQ2: We systematically evaluated and compared five state-of-the-art LLMs (LLaMA, GPT-3.5, DeepSeek, Claude 3.5 Sonnet, and Claude 3.5 Haiku) on existing labeled datasets to identify the most effective model for classification tasks.
+	ARQ3: We provide a generalized and reusable framework that can be extended to other applications or products for scalable review classification and aspect-based analysis.
+2. METHODOLOGY
+Figure 1 displays the overall view of our proposed zero shot framework.  
+ 
+Figure 1: A visual overview of our proposed framework
+2.1. Description of the Dataset
+We collected the dataset from user reviews of the Samsung Internet Browser on the Google Play Store for our study. Currently, the Samsung Internet Browser has over five million user reviews. To evaluate model performance on different human perception, we utilized three external datasets: an emotion classification dataset [4], a toxicity detection dataset, and a sentiment classification dataset [5]. These datasets helped us to choose the best performing model.
+2.2. Preprocessing Steps
+We performed several preprocessing steps to clean the text data. These included removing punctuation, numbers, emojis, and HTML tags. Subsequently, we applied stemming to reduce word variations and then used lemmatization to normalize the words.
+2.3. Prompt Engineering
+For prompt engineering, we experimented with multiple prompt formulations using a trial-and-error approach to improve model performance and accuracy. One example of the prompt we used is shown below. 
+Prompt-1: Instructional or Zero-Shot Style Prompt
+You are a helpful assistant tasked with analyzing general e-commerce user reviews. Given the following review, identify the correct category based on the user's sentiment, emotion, or toxicity:
+  
+[Review]: "The product quality was terrible and the delivery was delayed by a week."
+ 
+Possible categories: ["Positive", "Negative", "Neutral", "Anger", "Joy", "Sadness", "Toxic", "Severe Toxic", "Insult", "Obscene", "Threat", "Identity Hate"]
+
+Answer with the relevant categories only.
+2.4. Deployed LLM Models 
+We deployed several open-source large language models (LLMs), including LLaMA2-13B, GPT-3.5, DeepSeek-14B, Claude 3.5 Sonnet, and Claude 3.5 Haiku, to classify the existing datasets. Let the set of user reviews be X=x_1,x_2,….,x_n and the set of all possible labels be L=l_1,l_2,l_3,…,l_k. Each model prediction is: 
+(Y_i ) ̂=f(x_i )⊆L
+Where fis the classification function (e.g. GPT or DeepSeek), and (Y_i ) ̂ is the predicted label set for review x_i.
+2.5. Topic Modeling Using BERTopic
+We applied BERTopic, a topic modeling technique that leverages transformer embeddings and class-based TF-IDF (c-TF-IDF) to generate dense clusters. Initially, we allowed BERTopic to identify different topics from the reviews, which were later used for Sbrowser’s review classification. 
+〖c-TF-IDF〗_(t,c )= 〖TF〗_(t,c)*log⁡〖N/(df_t )〗
+Here, 〖TF〗_(t,c) is the term frequency of term t in class c, df_t is the number of classes in which term t appears, N is the total number of classes.
+2.6. Assigning Manual Labels 
+Since BERTopic is not always 100% accurate and can occasionally misclassify topics, we manually determined 14 labels to assist the LLM model in better learning.
+
+3. RESULTS AND ANALYSIS
+Table 1 displays the performance comparison of different models for three external labeled datasets. It is clear that DeepSeek-7B outperformed other models in sentiment and toxicity classification tasks, whereas Claude 3.5 (Sonnet) performed better in emotional classification task. The performance gap between DeepSeek-14B and Claude 3.5 (Sonnet) in emotion classification is subtle. Therefore, we considered DeepSeek-14B as the best performing model across all datasets.
+
+Table 1: Performance analysis on supervised data
+Models	Dataset	Acc	F1
+GPT 3.5	Sentiment	84.2	0.83
+	Emotion	79.5	0.78
+	Toxicity	81.7	0.79
+LLaMA2-13B	Sentiment 	80.0	0.78
+	Emotion	75.3	0.74
+	Toxicity	77.5	0.76
+Claude 3.5 (Sonnet)	Sentiment	86.3	0.85
+	Emotion	82.8	0.81
+	Toxicity	84.0	0.83
+Claude 3.5 (Haiku)	Sentiment	85.5	0.84
+	Emotion	81.5	0.80
+	Toxicity	83.3	0.82
+DeepSeek-14B	Sentiment	87.5	0.86
+	Emotion	82.0	0.80
+	Toxicity	85.2	0.84
+
+Table 2 shows the performance of DeepSeek-14B model on the Sbrowser review dataset. It also shows the number of reviews classified into defined categories by the model. It is observed that the most of the negative reviews came from the user who are showing their concern over user interface. Nearly 1050 reviews were found where concerns over UI arose.  
+Table 2: Assigned label with description
+Label	Description	Count
+User Interface (UI)	Design, layout, navigation issue	1050
+Dark Mode	Bugs in dark mode, text visibility issues	300
+Voice/Text Input	Problems with voice search or typing	350
+Download Manager	Problems downloading files, stuck downloads	600
+Privacy/Security	Data protection, permissions	500
+Ad Blocking	Issues with ad blocker not working or over-blocking 	700
+Extension Support	Lack of or broken extension support	350
+Compatibility	Pages not displaying correctly, websites issues	500
+Sync/Bookmarks	Lost data, synch errors, account problems	400
+Search Engine	Issues with default engine, customization	250
+4. CONCLUSION
+The automated aspect-based sentiment and complaint analysis can significantly aid in product improvement and faster response to user concerns. Due to the vast amount of data, supervised learning fails sometime and require unsupervised approach. Focusing on that, in this study, we explored several LLM models on app review dataset and found that if trained properly, these models can do really better.
+REFERENCES 
+[1] Kumar, P., et al., Navigating the Indian Code-Mixed Terrain: Multitasking Analysis of Complaints, Sentiment, Emotion, and Severity. 2024. doi: https://doi.org/10.2139/ssrn.4827145.
+[2] Nadi, F., et al., Sentiment Analysis Using Large Language Models: A Case Study of GPT-3.5. Lecture Notes on Data Engineering and Communications Technologies, pp. 161–168, (2024). doi: https://doi.org/10.1007/978-981-97-0293-0_12.
+[3] Nguyen, T. D., et al., Topic Classification of Vietnamese Product Reviews in E-Commerce Using PhoBERT. Journal of Marketing Analytics, (Apr. 2025). doi: https://doi.org/10.1057/s41270-025-00402-w.
+[4] Plaza-Del-Arco, et al., EmoEvent: A Multilingual Emotion Corpus Based on Different Events. ACL Anthology, pp. 1492–1498, (May 2020). 
+[5] Haque, T. U., et al., Sentiment Analysis on Large Scale Amazon Product Reviews. 2018 IEEE International Conference on Innovative Research and Development (ICIRD), (May 2018). doi: https://doi.org/10.1109/icird.2018.8376299.
+
+
 
