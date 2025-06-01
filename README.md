@@ -19,15 +19,13 @@ The popularity of e-commerce businesses and online shopping is experiencing rapi
 
 ## Methodology
 
-Figure 1 shows a schematic diagram of the methodology.
-
 <img title="Visual Representation of The Methodology" src="Methodlogy high.drawio (1000).drawio.png" alt="">
 
-Figure - 01: Visual Representation of The Methodolog
+<p align="center"><strong>Figure - 01: Visual Representation of The Methodology</strong></p>
 
 <img title="Dataset Preparation" src="datasetfraud high.drawio (1).png" alt="">
 
-Figure - 02: Data Collection & Preparation Procedure
+<p align="center"><strong>Figure - 02: Data Collection & Preparation Procedure</strong></p>
 
 ## Cite this work
 If you find this repository helpful in your work please cite the following
