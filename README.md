@@ -21,7 +21,7 @@ The popularity of e-commerce businesses and online shopping is experiencing rapi
 
 Figure 1 shows a schematic diagram of the methodology.
 
-<img title="Visual Representation of The Methodology" src="Methodlogy high.drawio (1000).png" alt="">
+<img title="Visual Representation of The Methodology" src="Methodlogy high.drawio (1000).drawio.png" alt="">
 
 Figure - 01: Visual Representation of The Methodolog
 
