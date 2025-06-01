@@ -25,7 +25,7 @@ Figure 1 shows a schematic diagram of the methodology.
 
 Figure - 01: Visual Representation of The Methodolog
 
-<img title="Dataset Preparation" src="datasetfraud high.drawio.png" alt="">
+<img title="Dataset Preparation" src="datasetfraud high.drawio (1).png" alt="">
 
 Figure - 02: Data Collection & Preparation Procedure
 
